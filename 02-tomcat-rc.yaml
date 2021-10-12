@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat
+spec:
+  selector:
+    matchLabels:
+      app: tomcat
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomcat
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcatb:8.5.66-jdk8
+        ports:
+        - containerPort: 8080
